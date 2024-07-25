@@ -15,12 +15,16 @@ var modo = configuration["Modo"] ?? throw new ArgumentNullException("Modo", "Deb
 
 using IWebDriver driver = new ChromeDriver(chromeOptions);
 
+Console.WriteLine($"Intentando acceder a: {urlMarcaje}");
+
 driver.Navigate().GoToUrl(urlMarcaje);
 
-var wait = new OpenQA.Selenium.Support.UI.WebDriverWait(driver, TimeSpan.FromSeconds(10));
-wait.Until(drv => drv.FindElements(By.CssSelector("button.btn-lg.btn-primary")).Count > 0);
+Console.WriteLine($"Buscando botón {modo}");
 
-var buttons = driver.FindElements(By.CssSelector("button.btn-lg.btn-primary"));
+var wait = new OpenQA.Selenium.Support.UI.WebDriverWait(driver, TimeSpan.FromSeconds(10));
+wait.Until(drv => drv.FindElements(By.CssSelector("button.btn-lg")).Count > 0);
+
+var buttons = driver.FindElements(By.CssSelector("button.btn-lg"));
 
 // Buscar el botón correcto
 foreach (var button in buttons)
@@ -34,6 +38,8 @@ foreach (var button in buttons)
 }
 
 wait.Until(drv => drv.FindElement(By.CssSelector("li.digits")));
+
+Console.WriteLine($"Ingresando Rut");
 
 buttons = driver.FindElements(By.CssSelector("li.digits"));
 
@@ -53,14 +59,18 @@ foreach (var digit in rut)
     Task.Delay(100).Wait();
 }
 
+Console.WriteLine($"Presionando botón Enviar");
+
 // Presionar el botón Enviar
 var submit = driver.FindElement(By.CssSelector("li.digits.pad-action"));
 submit.Click();
 
-wait.Until(drv => drv.FindElement(By.CssSelector("button.btn.btn-lg.btn-block.btn-success")));
+Console.WriteLine($"Presionando botón Confirmar");
+
+wait.Until(drv => drv.FindElement(By.CssSelector("button.btn.btn-lg.btn-block")));
 
 // Presionar el botón Confirmar
-submit = driver.FindElement(By.CssSelector("button.btn.btn-lg.btn-block.btn-success"));
+submit = driver.FindElement(By.CssSelector("button.btn.btn-lg.btn-block"));
 if (submit.Text == "Confirmar")
 {
     submit.Click();
