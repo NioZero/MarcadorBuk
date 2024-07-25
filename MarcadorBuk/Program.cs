@@ -3,6 +3,7 @@ using OpenQA.Selenium;
 using Microsoft.Extensions.Configuration;
 
 var chromeOptions = new ChromeOptions();
+//chromeOptions.AddArguments("--headless", "--disable-gpu", "--no-sandbox", "--disable-dev-shm-usage");
 
 IConfiguration configuration = new ConfigurationBuilder()
     .AddEnvironmentVariables()
