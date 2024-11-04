@@ -66,6 +66,8 @@ Console.WriteLine($"Presionando botón Enviar");
 var submit = driver.FindElement(By.CssSelector("li.digits.pad-action"));
 submit.Click();
 
+Task.Delay(400).Wait();
+
 Console.WriteLine($"Presionando botón Confirmar");
 
 wait.Until(drv => drv.FindElement(By.CssSelector("button.btn.btn-lg.btn-block")));
