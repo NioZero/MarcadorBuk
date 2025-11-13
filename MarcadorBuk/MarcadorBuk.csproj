@@ -2,7 +2,7 @@
 
     <PropertyGroup>
         <OutputType>Exe</OutputType>
-        <TargetFramework>net9.0</TargetFramework>
+        <TargetFramework>net10.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <UserSecretsId>aa291529-d68c-426a-9baf-e1ab49bf2bb8</UserSecretsId>
@@ -14,12 +14,12 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.Extensions.Configuration" Version="9.0.10" />
-        <PackageReference Include="Microsoft.Extensions.Configuration.CommandLine" Version="9.0.10" />
-        <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="9.0.10" />
+        <PackageReference Include="Microsoft.Extensions.Configuration" Version="10.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.CommandLine" Version="10.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="10.0.0" />
         <PackageReference Include="Selenium.Support" Version="4.38.0" />
         <PackageReference Include="Selenium.WebDriver" Version="4.38.0" />
-        <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="142.0.7444.6100" />
+        <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="142.0.7444.16200" />
     </ItemGroup>
 
 </Project>
